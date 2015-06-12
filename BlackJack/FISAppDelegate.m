@@ -14,9 +14,16 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    FISBlackjackGame *myBJgameInstance = [[FISBlackjackGame alloc] init];
+    [myBJgameInstance deal];
+    do {
+        [myBJgameInstance hit];
+    } while ((myBJgameInstance.isBusted == NO) && (myBJgameInstance.isBlackjack == NO));
+    
+    
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
     return YES;
 }
 
