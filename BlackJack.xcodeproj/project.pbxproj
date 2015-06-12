@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		381F708F1B2B111B0093FE9F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 381F708E1B2B111B0093FE9F /* README.md */; };
+		381F70921B2B18300093FE9F /* FISPlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F70911B2B18300093FE9F /* FISPlayingCardDeck.m */; };
 		3852B1F41B2A5CD700760061 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 3852B1F11B2A5CD700760061 /* Card.m */; };
 		3852B1F51B2A5CD700760061 /* FISPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3852B1F31B2A5CD700760061 /* FISPlayingCard.m */; };
 		440FE73819464F8000C45D87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440FE73719464F8000C45D87 /* Foundation.framework */; };
@@ -39,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		381F708E1B2B111B0093FE9F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		381F70901B2B18300093FE9F /* FISPlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISPlayingCardDeck.h; sourceTree = "<group>"; };
+		381F70911B2B18300093FE9F /* FISPlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISPlayingCardDeck.m; sourceTree = "<group>"; };
 		3852B1F01B2A5CD700760061 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		3852B1F11B2A5CD700760061 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		3852B1F21B2A5CD700760061 /* FISPlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISPlayingCard.h; sourceTree = "<group>"; };
@@ -128,11 +131,13 @@
 			children = (
 				381F708E1B2B111B0093FE9F /* README.md */,
 				440FE74619464F8000C45D87 /* FISAppDelegate.h */,
+				440FE74719464F8000C45D87 /* FISAppDelegate.m */,
 				3852B1F01B2A5CD700760061 /* Card.h */,
 				3852B1F11B2A5CD700760061 /* Card.m */,
+				381F70901B2B18300093FE9F /* FISPlayingCardDeck.h */,
+				381F70911B2B18300093FE9F /* FISPlayingCardDeck.m */,
 				3852B1F21B2A5CD700760061 /* FISPlayingCard.h */,
 				3852B1F31B2A5CD700760061 /* FISPlayingCard.m */,
-				440FE74719464F8000C45D87 /* FISAppDelegate.m */,
 				440FE73F19464F8000C45D87 /* BlackJack-Info.plist */,
 				440FE74019464F8000C45D87 /* InfoPlist.strings */,
 				440FE74319464F8000C45D87 /* main.m */,
@@ -314,6 +319,7 @@
 				440FE74819464F8000C45D87 /* FISAppDelegate.m in Sources */,
 				381F708F1B2B111B0093FE9F /* README.md in Sources */,
 				3852B1F51B2A5CD700760061 /* FISPlayingCard.m in Sources */,
+				381F70921B2B18300093FE9F /* FISPlayingCardDeck.m in Sources */,
 				3852B1F41B2A5CD700760061 /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
