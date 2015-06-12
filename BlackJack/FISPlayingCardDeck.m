@@ -15,6 +15,7 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
+        _cards = [[NSMutableArray alloc] init];
         _suitIconsByName = @{@"hearts":@"♥",
                           @"spades":@"♠",
                           @"clubs":@"♣",
