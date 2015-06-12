@@ -29,10 +29,8 @@
 
 //After dealing, hit to add a card, until blackjack or bust.
 -(void)hit {
-    if ((_hand.count < 2) ||
-        )
+    if (self.isBusted || self.isBlackjack || (_hand.count < 2))
         return;
-    
     [_hand addObject:_playingCardDeck.drawRandomCard]; // _hand++
 }
 
