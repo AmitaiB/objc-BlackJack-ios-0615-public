@@ -19,11 +19,18 @@
                           @"spades":@"♠",
                           @"clubs":@"♣",
                           @"diamonds":@"♦"};
-//        for (NSInteger i = 0; i < decks; i++)
-    [self addStandardDeck];
+
+        for (NSString *suit in [_suitIconsByName allValues]) {
+            for (NSUInteger rank = 1; rank <= 13; rank++) {
+                FISPlayingCard* newCard = [[FISPlayingCard alloc] initWithSuit:suit rank:@(rank)];
+                [_cards addObject:newCard];
+            }
+        }
+    }
+        //        for (NSInteger i = 0; i < decks; i++)
+//    [self addStandardDeck];
 //        _fullDeck = self.isFull;
         
-    }
     return self;
 }
 
@@ -32,14 +39,10 @@
 //}
 
 //Adds 13 cards for each of the 4 suits.
--(void)addStandardDeck {
-    for (NSString *suit in [_suitIconsByName allValues]) {
-        for (NSUInteger rank = 1; rank <= 13; rank++) {
-            FISPlayingCard* newCard = [[FISPlayingCard alloc] initWithSuit:suit rank:@(rank)];
-            [self.cards addObject:newCard];
-        }
-    }
-}
+//-(void)addStandardDeck {
+//        }
+//    }
+//}
 
 -(BOOL)isFull {
     return ([self.cards count] == 52) ?  YES : NO;
