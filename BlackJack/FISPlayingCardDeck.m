@@ -12,24 +12,24 @@
 
 @implementation FISPlayingCardDeck
 
--(instancetype)initMultipleDecks:(NSUInteger)decks {
+-(instancetype)init {
     self = [super init];
     if (self) {
         _suitIconsByName = @{@"hearts":@"♥",
                           @"spades":@"♠",
                           @"clubs":@"♣",
                           @"diamonds":@"♦"};
-        for (NSInteger i = 0; i < decks; i++)
-            [self addStandardDeck];
+//        for (NSInteger i = 0; i < decks; i++)
+    [self addStandardDeck];
 //        _fullDeck = self.isFull;
         
     }
     return self;
 }
 
--(instancetype)init {
-    return [self initMultipleDecks:1];
-}
+//-(instancetype)init {
+//    return [self initMultipleDecks:1];
+//}
 
 //Adds 13 cards for each of the 4 suits.
 -(void)addStandardDeck {

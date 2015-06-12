@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSDictionary *suitIconsByName;
 @property (nonatomic) BOOL fullDeck;
 
--(instancetype)initMultipleDecks:(NSUInteger)decks;
+//-(instancetype)initMultipleDecks:(NSUInteger)decks;
 -(instancetype)init;
 
 
