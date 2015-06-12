@@ -20,8 +20,9 @@
                           @"clubs":@"♣",
                           @"diamonds":@"♦"};
         for (NSInteger i = 0; i < decks; i++)
-            self.addStandardDeck;
-        _fullDeck = self.isFull;
+            [self addStandardDeck];
+//        _fullDeck = self.isFull;
+        
     }
     return self;
 }
@@ -35,22 +36,25 @@
     for (NSString *suit in [_suitIconsByName allValues]) {
         for (NSUInteger rank = 1; rank <= 13; rank++) {
             FISPlayingCard* newCard = [[FISPlayingCard alloc] initWithSuit:suit rank:@(rank)];
-            [_cards addObject:newCard];
+            [self.cards addObject:newCard];
         }
     }
 }
 
 -(BOOL)isFull {
-    return ([_cards count] == 52) ?  YES : NO;
+    return ([self.cards count] == 52) ?  YES : NO;
 }
 
 
 -(FISPlayingCard*)drawRandomCard {
-    NSUInteger randomFromRemainingCards = (NSUInteger)roundf([self randomFloatBetweenNumber:0 andNumber:(_cards.count-1)]);
+    if ([self.cards count] == 0)
+        return [[FISPlayingCard alloc] init];
+    
+    NSUInteger randomFromRemainingCards = (NSUInteger)roundf([self randomFloatBetweenNumber:1 andNumber:(self.cards.count)]);
 
-    NSLog(@"randomFromRemainingCards: %d", randomFromRemainingCards);
-    FISPlayingCard *drawnCard = _cards[randomFromRemainingCards];
-    [_cards removeObjectAtIndex:randomFromRemainingCards];
+    NSLog(@"randomFromRemainingCards: %lul", (unsigned long)randomFromRemainingCards);
+    FISPlayingCard *drawnCard = (FISPlayingCard*)self.cards[randomFromRemainingCards -1];
+    [self.cards removeObjectAtIndex:randomFromRemainingCards -1];
     
     return drawnCard;
 }

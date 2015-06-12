@@ -72,7 +72,7 @@ describe(@"FISBlackjackGame", ^{
         it(@"should add one card to a dealt hand", ^{
             [game deal];
             [game hit];
-            NSLog(@"%d", [game.hand count]); 
+            NSLog(@"%d", [game.hand count]);
             expect([game.hand count]).to.equal(3);
         });
         it(@"should not hit if cards are not dealt", ^{
