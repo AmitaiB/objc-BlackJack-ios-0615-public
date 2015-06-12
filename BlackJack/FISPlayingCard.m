@@ -39,8 +39,9 @@
 -(void)setSuit:(NSString *)suit {
     //overrides setter to check for validity
     _suit = suit;
-    if (!self.isProperSuit)
+    if (!self.isProperSuit) {
         _suit = @"";
+    }
 }
 
 -(NSString*)description {

@@ -14,7 +14,7 @@
 {
     
     // Override point for customization after application launch.
-//    FISBlackjackGame *myBJgameInstance = [[FISBlackjackGame alloc] init];
+    FISBlackjackGame *myBJgameInstance = [[FISBlackjackGame alloc] init];
 //    [myBJgameInstance deal];
 //    do {
 //        [myBJgameInstance hit];
