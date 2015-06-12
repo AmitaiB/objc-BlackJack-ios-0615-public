@@ -41,7 +41,7 @@
     for (FISPlayingCard *card in _hand) {
         if ([card.rank isEqualToNumber: @1]) {
             handScoreTemp += 11;
-            acesInHand += 11;
+            acesInHand += 11;
         } else {
             handScoreTemp += [card.rank integerValue];
         }

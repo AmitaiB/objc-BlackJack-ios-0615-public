@@ -24,8 +24,8 @@
 -(FISPlayingCard*)drawRandomCard; //-(void)shuffle; Not needed if you can draw a random card.
 -(void)addStandardDeck;
 -(BOOL) isFull;
--(NSNumber*)remainingCardsNum;
--(NSArray*)remainingCardsList;
+//-(NSNumber*)remainingCardsNum;
+//-(NSArray*)remainingCardsList;
 -(CGFloat)randomFloatBetweenNumber:(CGFloat)minRange andNumber:(CGFloat)maxRange;
 
 @end

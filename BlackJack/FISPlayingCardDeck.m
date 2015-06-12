@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Flatiron School. All rights reserved.
 //
 
+#define ARC4RANDOM_MAX 0x100000000
 #import "FISPlayingCardDeck.h"
 //♥♠♣♦
 
@@ -33,7 +34,7 @@
 -(void)addStandardDeck {
     for (NSString *suit in [_suitIconsByName allValues]) {
         for (NSUInteger rank = 1; rank <= 13; rank++) {
-            FISPlayingCard* newCard = [[FISPlayingCard alloc] initWithSuit:suit rank:rank];
+            FISPlayingCard* newCard = [[FISPlayingCard alloc] initWithSuit:suit rank:@(rank)];
             [_cards addObject:newCard];
         }
     }
@@ -57,5 +58,7 @@
 {
     return ((float)arc4random() / ARC4RANDOM_MAX) * (maxRange - minRange);
 }
+
+
 
 @end
