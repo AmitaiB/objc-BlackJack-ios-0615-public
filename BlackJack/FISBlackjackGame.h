@@ -18,7 +18,7 @@
 - (instancetype)init; // should initialize playingCardDeck with a new deck, set handScore and isBusted to default values
 - (void)deal; // should deal 2 new cards and add those cards to the hand.
 - (void)hit; // should deal one additional card and add it card to the hand.
-
+-(void)refreshHandScore;
 -(BOOL) isBusted; // returns YES if handScore is more than 21
 -(BOOL) isBlackjack; // returns YES if handScore is 21
 @end
