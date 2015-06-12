@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Al Tyus. All rights reserved.
 //
 
-#import "PlayingCard.h"
+#import "FISPlayingCard.h"
 
-@implementation PlayingCard
+@implementation FISPlayingCard
 
 -(instancetype)initWithSuit:(NSString*)suit rank:(NSNumber*)rank {
     self = [super init];
