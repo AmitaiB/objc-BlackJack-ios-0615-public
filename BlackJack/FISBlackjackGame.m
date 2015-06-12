@@ -39,28 +39,34 @@
     NSUInteger acesInHand = 0;
     
     for (FISPlayingCard *card in _hand) {
-        if (card.rank == 1) {
-            acesInHand++;
+        if ([card.rank isEqualToNumber: @1]) {
             handScoreTemp += 11;
+            acesInHand += 11;
         } else {
-            handScoreTemp += card.rank;
+            handScoreTemp += [card.rank integerValue];
         }
     }
     
-    for (NSUInteger i = acesInHand; i > 0; i--) {
-        (handScoreTemp > 21)? handScoreTemp -= 10 : break;
+    while ((acesInHand > 0) && (handScoreTemp > 21)) {
+        handScoreTemp -= 10;
+        acesInHand--;
     }
+    
+//    for (NSUInteger i = acesInHand; i > 0; i--) {
+//        (handScoreTemp > 21)? handScoreTemp -= 10 : i;
+//        i++;
+//    }
     
     _handScore = [NSNumber numberWithInteger:handScoreTemp];
     
 }
 
 -(BOOL)isBusted {
-    return (_handScore > 21) ? YES : NO;
+    return ([_handScore intValue] > 21) ? YES : NO;
 }
 
 -(BOOL) isBlackjack {
-    return (_handScore == 21) ? YES: NO;
+    return ([_handScore intValue] == 21) ? YES: NO;
 }
 
 @end

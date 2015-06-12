@@ -55,7 +55,7 @@
         return NO;
     
     NSCharacterSet *suitSymbols = [NSCharacterSet characterSetWithCharactersInString:@"♥♠♣♦"];
-    unichar possibleSuit = [self.suit characterAtIndex:0];
+    char possibleSuit = [self.suit characterAtIndex:0];
     
     if ([suitSymbols characterIsMember:possibleSuit])
         return YES;
