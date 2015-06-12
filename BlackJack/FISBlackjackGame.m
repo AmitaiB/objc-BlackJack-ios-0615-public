@@ -62,11 +62,11 @@
 }
 
 -(BOOL)isBusted {
-    return ([self.handScore intValue] > 21) ? YES : NO;
+    return ([self.handScore intValue] > 21);
 }
 
 -(BOOL) isBlackjack {
-    return ([self.handScore intValue] == 21) ? YES: NO;
+    return ([self.handScore intValue] == 21);
 }
 
 @end
