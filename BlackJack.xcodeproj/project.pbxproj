@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3852B1F41B2A5CD700760061 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 3852B1F11B2A5CD700760061 /* Card.m */; };
-		3852B1F51B2A5CD700760061 /* PlayingCard1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3852B1F31B2A5CD700760061 /* PlayingCard1.m */; };
+		3852B1F51B2A5CD700760061 /* FISPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3852B1F31B2A5CD700760061 /* FISPlayingCard.m */; };
 		440FE73819464F8000C45D87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440FE73719464F8000C45D87 /* Foundation.framework */; };
 		440FE73A19464F8000C45D87 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440FE73919464F8000C45D87 /* CoreGraphics.framework */; };
 		440FE73C19464F8000C45D87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440FE73B19464F8000C45D87 /* UIKit.framework */; };
@@ -39,8 +39,8 @@
 /* Begin PBXFileReference section */
 		3852B1F01B2A5CD700760061 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		3852B1F11B2A5CD700760061 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
-		3852B1F21B2A5CD700760061 /* PlayingCard1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCard1.h; sourceTree = "<group>"; };
-		3852B1F31B2A5CD700760061 /* PlayingCard1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard1.m; sourceTree = "<group>"; };
+		3852B1F21B2A5CD700760061 /* FISPlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISPlayingCard.h; sourceTree = "<group>"; };
+		3852B1F31B2A5CD700760061 /* FISPlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISPlayingCard.m; sourceTree = "<group>"; };
 		440FE73419464F8000C45D87 /* BlackJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		440FE73719464F8000C45D87 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		440FE73919464F8000C45D87 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,8 +127,8 @@
 				440FE74619464F8000C45D87 /* FISAppDelegate.h */,
 				3852B1F01B2A5CD700760061 /* Card.h */,
 				3852B1F11B2A5CD700760061 /* Card.m */,
-				3852B1F21B2A5CD700760061 /* PlayingCard1.h */,
-				3852B1F31B2A5CD700760061 /* PlayingCard1.m */,
+				3852B1F21B2A5CD700760061 /* FISPlayingCard.h */,
+				3852B1F31B2A5CD700760061 /* FISPlayingCard.m */,
 				440FE74719464F8000C45D87 /* FISAppDelegate.m */,
 				440FE73F19464F8000C45D87 /* BlackJack-Info.plist */,
 				440FE74019464F8000C45D87 /* InfoPlist.strings */,
@@ -309,7 +309,7 @@
 			files = (
 				440FE74419464F8000C45D87 /* main.m in Sources */,
 				440FE74819464F8000C45D87 /* FISAppDelegate.m in Sources */,
-				3852B1F51B2A5CD700760061 /* PlayingCard1.m in Sources */,
+				3852B1F51B2A5CD700760061 /* FISPlayingCard.m in Sources */,
 				3852B1F41B2A5CD700760061 /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
