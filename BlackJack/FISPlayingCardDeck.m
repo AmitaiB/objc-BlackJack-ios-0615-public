@@ -46,8 +46,9 @@
 
 
 -(FISPlayingCard*)drawRandomCard {
-    NSUInteger randomFromRemainingCards = (NSUInteger)roundf([self randomFloatBetweenNumber:1 andNumber:_cards.count]);
-    
+    NSUInteger randomFromRemainingCards = (NSUInteger)roundf([self randomFloatBetweenNumber:0 andNumber:(_cards.count-1)]);
+
+    NSLog(@"randomFromRemainingCards: %d", randomFromRemainingCards);
     FISPlayingCard *drawnCard = _cards[randomFromRemainingCards];
     [_cards removeObjectAtIndex:randomFromRemainingCards];
     

@@ -8,7 +8,7 @@
 //♥♠♣♦
 
 #import "Card.h"
-#define unichar HEARTS = '♥';
+//#define unichar HEARTS = '♥';
 
 @interface FISPlayingCard : Card
 
