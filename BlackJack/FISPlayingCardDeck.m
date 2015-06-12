@@ -20,6 +20,7 @@
                           @"diamonds":@"♦"};
         for (NSInteger i = 0; i < decks; i++)
             self.addStandardDeck;
+        _fullDeck = self.isFull;
     }
     return self;
 }
@@ -28,6 +29,7 @@
     return [self initMultipleDecks:1];
 }
 
+//Adds 13 cards for each of the 4 suits.
 -(void)addStandardDeck {
     for (NSString *suit in [_suitIconsByName allValues]) {
         for (NSUInteger rank = 1; rank <= 13; rank++) {
@@ -35,6 +37,25 @@
             [_cards addObject:newCard];
         }
     }
+}
+
+-(BOOL)isFull {
+    return ([_cards count] == 52) ?  YES : NO;
+}
+
+
+-(FISPlayingCard*)drawRandomCard {
+    NSUInteger randomFromRemainingCards = (NSUInteger)roundf([self randomFloatBetweenNumber:1 andNumber:_cards.count]);
+    
+    FISPlayingCard *drawnCard = _cards[randomFromRemainingCards];
+    [_cards removeObjectAtIndex:randomFromRemainingCards];
+    
+    return drawnCard;
+}
+
+-(CGFloat)randomFloatBetweenNumber:(CGFloat)minRange andNumber:(CGFloat)maxRange
+{
+    return ((float)arc4random() / ARC4RANDOM_MAX) * (maxRange - minRange);
 }
 
 @end
