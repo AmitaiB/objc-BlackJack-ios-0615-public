@@ -142,21 +142,25 @@ describe(@"FISBlackjackGame", ^{
             expect([game.handScore doubleValue] == floorl([game.handScore doubleValue])).to.beTruthy(); //checks that value as a double is an int
         });
         it(@"should use ace as 11 whenever possible, but use ace as 1 if using it as an 11 would make the handscore greater than 21", ^{
-        
+            NSLog(@"game.handScore at line 145 = %@",game.handScore);
             game.hand = [NSMutableArray arrayWithArray:@[aceClubs, aceHearts, aceDiamonds, aceSpades]];
             expect(game.handScore).to.equal(@14); //11 + 1 + 1 + 1
-            
+            NSLog(@"game.handScore at line 148 = %@",game.handScore);
+
             game.hand = [NSMutableArray arrayWithArray:@[aceSpades, kingHearts]];
-            
+            NSLog(@"game.handScore at line 151 = %@",game.handScore);
+
             expect(game.handScore).to.equal(@21); //11 + 10
             
             game.hand = [NSMutableArray arrayWithArray:@[aceSpades, kingHearts, aceHearts]];
-            
+            NSLog(@"game.handScore at line 156 = %@",game.handScore);
+
             expect(game.handScore).to.equal(12); //1 + 10 + 1
             expect(game.isBusted).to.beFalsy();
             
             game.hand = [NSMutableArray arrayWithArray:@[aceSpades, kingHearts, aceHearts, kingDiamonds]];
-            
+            NSLog(@"game.handScore at line 162 = %@",game.handScore);
+
             expect(game.handScore).to.equal(@22); //1+10+1+10
             expect(game.isBusted).to.beTruthy();
             

@@ -51,12 +51,16 @@
             handIncludesAnAce = YES;
         handScoreTemp += [card.rank integerValue];
     }
+    NSLog(@"FROM inside checkHandScore, BEFORE accounting for Aces. handScoreTemp = %lu", (unsigned long)handScoreTemp);
     
     if (handIncludesAnAce && handScoreTemp < 12) {
         handScoreTemp += 10;
     }
+
+    NSLog(@"FROM inside checkHandScore, AFTER accounting for Aces. handScoreTemp = %lu", (unsigned long)handScoreTemp);
+
     
-    self.handScore = [NSNumber numberWithInteger:handScoreTemp];
+    self.handScore = [NSNumber numberWithUnsignedInteger:handScoreTemp];
     [self isBusted];
     [self isBlackjack];
     
