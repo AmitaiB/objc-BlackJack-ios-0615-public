@@ -64,23 +64,24 @@
 
     
     self.handScore = [NSNumber numberWithUnsignedInteger:handScoreTemp];
-    [self isBusted];
-    [self isBlackjack];
+//  Don't need to call these here if there is no property to be changed.
+//    [self isBusted];
+//    [self isBlackjack];
     
 }
 
 -(BOOL)isBusted {
-    NSMutableString *rankOfAllCards = [[NSMutableString alloc]init];
-    for (FISPlayingCard *card in self.hand) {
-        [rankOfAllCards appendFormat:(@"%@, ", card.rank)];
-    }
-    NSLog(@"I'M ABOUT TO RETURN isBusted (for a hand of %@) as = %@", rankOfAllCards, ([self.handScore intValue] > 21)? @"YES" : @"NO");
-    
-    return ([self.handScore intValue] > 21);
+//    NSMutableString *rankOfAllCards = [[NSMutableString alloc]init];
+//    for (FISPlayingCard *card in self.hand) {
+//        [rankOfAllCards appendFormat:(@"%@, ", [card.rank stringValue])];
+//    }
+    NSLog(@"RETURNING isBusted (for a handScore of %d) as = %@", [self.handScore intValue], ([self.handScore intValue] > 21)? @"YES" : @"NO");
+    NSComparisonResult result = [self.handScore compare:@21];
+    return (result == NSOrderedDescending);
 }
 
 -(BOOL)isBlackjack {
-    return ([self.handScore intValue] == 21);
+    return ([self.handScore isEqualToNumber:@21]);
 }
 
 -(void)setHand:(NSMutableArray*)newHand {
