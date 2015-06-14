@@ -16,6 +16,8 @@
         _playingCardDeck = [[FISPlayingCardDeck alloc] init];
         _hand = [[NSMutableArray alloc] init];
         [self checkHandScore];
+        _isBusted = NO;
+        _isBlackjack = NO;
     }
     return self;
 }
@@ -30,10 +32,12 @@
 
 //After dealing, hit to add a card, until blackjack or bust.
 -(void)hit {
-    if ([self isBusted] || [self isBlackjack] || ([self.hand count] < 2))
+    NSLog(@"ABOUT TO HIT. isBusted = %@, isBlackjack = %@", self.isBusted? @"YES":@"NO", self.isBlackjack? @"YES":@"NO");
+    if (self.isBusted || self.isBlackjack || ([self.hand count] < 2))
         return;
     [self.hand addObject:[self.playingCardDeck drawRandomCard]];
     [self checkHandScore];
+        NSLog(@"JUST HIT. isBusted = %@, isBlackjack = %@", self.isBusted? @"YES":@"NO", self.isBlackjack? @"YES":@"NO");
     // _hand++
 }
 
@@ -61,15 +65,23 @@
 //    }
     
     self.handScore = [NSNumber numberWithInteger:handScoreTemp];
+    [self isBusted];
+    [self isBlackjack];
     
 }
 
 -(BOOL)isBusted {
-    return ([self.handScore intValue] > 21);
+    return self.isBusted = ([self.handScore intValue] > 21);
 }
 
 -(BOOL) isBlackjack {
-    return ([self.handScore intValue] == 21);
+    return self.isBlackjack = ([self.handScore intValue] == 21);
+}
+
+-(void)setHand:(NSMutableArray *)newHand {
+    [_hand addObjectsFromArray:newHand];
+    [_playingCardDeck.cards removeObjectsInArray:newHand];
+    [self checkHandScore];
 }
 
 @end
