@@ -41,28 +41,20 @@
     // _hand++
 }
 
+//Add score with Ace11, ifBusts, addScore with Ace1, and repeat for all aces
 -(void)checkHandScore {
     NSUInteger handScoreTemp = 0;
-    NSUInteger acesInHand = 0;
+    BOOL handIncludesAnAce = NO;
     
     for (FISPlayingCard *card in self.hand) {
-        if ([card.rank isEqualToNumber: @1]) {
-            handScoreTemp += 11;
-            acesInHand += 11;
-        } else {
-            handScoreTemp += [card.rank integerValue];
-        }
+        if ([card.rank isEqualToNumber:@1])
+            handIncludesAnAce = YES;
+        handScoreTemp += [card.rank integerValue];
     }
     
-    while ((acesInHand > 0) && (handScoreTemp > 21)) {
-        handScoreTemp -= 10;
-        acesInHand--;
+    if (handIncludesAnAce && handScoreTemp < 12) {
+        handScoreTemp += 10;
     }
-    
-//    for (NSUInteger i = acesInHand; i > 0; i--) {
-//        (handScoreTemp > 21)? handScoreTemp -= 10 : i;
-//        i++;
-//    }
     
     self.handScore = [NSNumber numberWithInteger:handScoreTemp];
     [self isBusted];
