@@ -49,7 +49,10 @@
     for (FISPlayingCard *card in self.hand) {
         if ([card.rank isEqualToNumber:@1])
             handIncludesAnAce = YES;
-        handScoreTemp += [card.rank integerValue];
+        if (card.rank > 10)
+            handScoreTemp += 10;
+        else
+            handScoreTemp += [card.rank integerValue];
     }
     NSLog(@"FROM inside checkHandScore, BEFORE accounting for Aces. handScoreTemp = %lu", (unsigned long)handScoreTemp);
     
