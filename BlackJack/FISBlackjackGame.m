@@ -79,7 +79,7 @@
     [_hand removeAllObjects];
     [_hand addObjectsFromArray:newHand];
     [_playingCardDeck.cards removeObjectsInArray:newHand];
-    NSLog(@"self.playingCardDeck.cards count READS AS = %lu", (unsigned long)[self.playingCardDeck.cards count]);
+//    NSLog(@"self.playingCardDeck.cards count READS AS = %lu", (unsigned long)[self.playingCardDeck.cards count]);
     [self checkHandScore];
 }
 
