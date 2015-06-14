@@ -15,6 +15,7 @@
     if (self) {
         _playingCardDeck = [[FISPlayingCardDeck alloc] init];
         _hand = [[NSMutableArray alloc] init];
+        _handScore = @0;
         [self checkHandScore];
         _isBusted = NO;
         _isBlackjack = NO;
