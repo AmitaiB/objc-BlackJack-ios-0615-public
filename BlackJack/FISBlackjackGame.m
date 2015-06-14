@@ -16,7 +16,6 @@
         _playingCardDeck = [[FISPlayingCardDeck alloc] init];
         _hand = [[NSMutableArray alloc] init];
         _handScore = @0;
-        [self checkHandScore];
         _isBusted = NO;
         _isBlackjack = NO;
     }
@@ -68,18 +67,21 @@
 }
 
 -(BOOL)isBusted {
-    return self.isBusted = ([self.handScore intValue] > 21);
+    self.isBusted = ([self.handScore intValue] > 21);
+    return self.isBusted;
 }
 
--(BOOL) isBlackjack {
-    return self.isBlackjack = ([self.handScore intValue] == 21);
+-(BOOL)isBlackjack {
+    self.isBlackjack = ([self.handScore intValue] == 21);
+    return self.isBusted;
 }
 
--(void)setHand:(NSMutableArray *)newHand {
+-(void)setHand:(NSMutableArray*)newHand {
     _playingCardDeck = [[FISPlayingCardDeck alloc] init];
     [_hand removeAllObjects];
     [_hand addObjectsFromArray:newHand];
     [_playingCardDeck.cards removeObjectsInArray:newHand];
+    NSLog(@"self.playingCardDeck.cards count READS AS = %lu", (unsigned long)[self.playingCardDeck.cards count]);
     [self checkHandScore];
 }
 
