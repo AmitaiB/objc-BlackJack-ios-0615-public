@@ -46,7 +46,7 @@
 //}
 
 -(BOOL)isFull {
-    return ([self.cards count] == 52) ?  YES : NO;
+    return ([self.cards count] == 52);
 }
 
 

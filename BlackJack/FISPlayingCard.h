@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSString *suit;
 @property (nonatomic, strong) NSNumber* rank;
+@property (nonatomic, strong) NSString *rankByName;
 
 -(instancetype)initWithSuit:(NSString*)suit rank:(NSNumber*)rank;
 -(instancetype)init;

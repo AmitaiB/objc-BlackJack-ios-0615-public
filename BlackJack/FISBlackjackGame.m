@@ -25,13 +25,16 @@
     [self.hand removeAllObjects];
     [self.hand addObject:[self.playingCardDeck drawRandomCard]]; //1
     [self.hand addObject:[self.playingCardDeck drawRandomCard]]; //2
+    [self refreshHandScore];
 }
 
 //After dealing, hit to add a card, until blackjack or bust.
 -(void)hit {
     if (self.isBusted || self.isBlackjack || (self.hand.count < 2))
         return;
-    [self.hand addObject:[self.playingCardDeck drawRandomCard]]; // _hand++
+    [self.hand addObject:[self.playingCardDeck drawRandomCard]];
+    [self refreshHandScore];
+    // _hand++
 }
 
 -(void)refreshHandScore {

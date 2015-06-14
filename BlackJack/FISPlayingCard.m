@@ -69,4 +69,25 @@
     else return YES;
 }
 
+-(void)setRankByName {
+    switch ([self.rank intValue]) {
+        case 1:
+            _rankByName = @"Ace";
+            break;
+        case 11:
+            _rankByName = @"Jack";
+            break;
+        case 12:
+            _rankByName = @"Queen";
+            break;
+        case 13:
+            _rankByName = @"King";
+            break;
+            
+        default:
+            _rankByName = nil;
+            break;
+    }
+}
+
 @end
