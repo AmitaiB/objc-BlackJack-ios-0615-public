@@ -41,7 +41,7 @@
     // _hand++
 }
 
-//Add score with Ace11, ifBusts, addScore with Ace1, and repeat for all aces
+//Add score with AllAces1, if score < 12, add 10 (only want one ace + 10)
 -(void)checkHandScore {
     NSUInteger handScoreTemp = 0;
     BOOL handIncludesAnAce = NO;
@@ -71,6 +71,8 @@
 }
 
 -(void)setHand:(NSMutableArray *)newHand {
+    _playingCardDeck = [[FISPlayingCardDeck alloc] init];
+    [_hand removeAllObjects];
     [_hand addObjectsFromArray:newHand];
     [_playingCardDeck.cards removeObjectsInArray:newHand];
     [self checkHandScore];
