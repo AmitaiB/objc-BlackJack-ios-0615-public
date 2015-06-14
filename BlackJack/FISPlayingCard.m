@@ -34,6 +34,7 @@
     _rank = rank;
     if (!self.isProperRank)
         _rank = @0;
+    [self setRankByName];
 }
 
 -(void)setSuit:(NSString *)suit {
