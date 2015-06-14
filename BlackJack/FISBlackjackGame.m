@@ -70,6 +70,12 @@
 }
 
 -(BOOL)isBusted {
+    NSMutableString *rankOfAllCards = [[NSMutableString alloc]init];
+    for (FISPlayingCard *card in self.hand) {
+        [rankOfAllCards appendFormat:(@"%@, ", card.rank)];
+    }
+    NSLog(@"I'M ABOUT TO RETURN isBusted (for a hand of %@) as = %@", rankOfAllCards, ([self.handScore intValue] > 21)? @"YES" : @"NO");
+    
     return ([self.handScore intValue] > 21);
 }
 
