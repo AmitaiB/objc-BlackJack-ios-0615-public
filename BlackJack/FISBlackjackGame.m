@@ -44,7 +44,13 @@
     [self.hand addObject:[self.playingCardDeck drawRandomCard]];
     [self checkHandScore];
         NSLog(@"JUST HIT. isBusted = %@, isBlackjack = %@", self.isBusted? @"YES":@"NO", self.isBlackjack? @"YES":@"NO");
-    // _hand++
+}
+
+-(void)setHand:(NSMutableArray*)newHand {
+    [self setupNewRound];
+    [self.hand addObjectsFromArray:newHand];
+    [self.playingCardDeck.cards removeObjectsInArray:newHand];
+    [self checkHandScore];
 }
 
 //Add score with AllAces1, if score < 12, add 10 (only want one ace + 10)
@@ -55,7 +61,7 @@
     for (FISPlayingCard *card in self.hand) {
         if ([card.rank isEqualToNumber:@1])
             handIncludesAnAce = YES;
-        if (card.rank > 10)
+        if ([card.rank integerValue] > 10)
             handScoreTemp += 10;
         else
             handScoreTemp += [card.rank integerValue];
@@ -68,7 +74,6 @@
 
     NSLog(@"FROM inside checkHandScore, AFTER accounting for Aces. handScoreTemp = %lu", (unsigned long)handScoreTemp);
 
-    
     self.handScore = [NSNumber numberWithUnsignedInteger:handScoreTemp];
     [self checkIfBusted];
     [self checkIfBlackjack];
@@ -76,26 +81,11 @@
 }
 
 -(void)checkIfBusted {
-//    NSMutableString *rankOfAllCards = [[NSMutableString alloc]init];
-//    for (FISPlayingCard *card in self.hand) {
-//        [rankOfAllCards appendFormat:(@"%@, ", card.rank)];
-//    }
-//    NSLog(@"I'M ABOUT TO RETURN isBusted (for a hand of %@) as = %@", rankOfAllCards, ([self.handScore intValue] > 21)? @"YES" : @"NO");
-//    
     self.isBusted = [self.handScore integerValue] > 21;
 }
 
--(void)isBlackjack {
+-(void)checkIfBlackjack {
     self.isBlackjack = [self.handScore integerValue] == 21;
-}
-
--(void)setHand:(NSMutableArray*)newHand {
-    _playingCardDeck = [[FISPlayingCardDeck alloc] init];
-    [_hand removeAllObjects];
-    [_hand addObjectsFromArray:newHand];
-    [_playingCardDeck.cards removeObjectsInArray:newHand];
-//    NSLog(@"self.playingCardDeck.cards count READS AS = %lu", (unsigned long)[self.playingCardDeck.cards count]);
-    [self checkHandScore];
 }
 
 @end

@@ -22,6 +22,6 @@
 - (void)deal; // should deal 2 new cards and add those cards to the hand.
 - (void)hit; // should deal one additional card and add it card to the hand.
 -(void)checkHandScore;
--(BOOL) checkIfBusted; // returns YES if handScore is more than 21
--(BOOL) checkIfBlackjack; // returns YES if handScore is 21
+-(void) checkIfBusted; // returns YES if handScore is more than 21
+-(void) checkIfBlackjack; // returns YES if handScore is 21
 @end
