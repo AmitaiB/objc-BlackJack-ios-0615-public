@@ -71,10 +71,6 @@
 }
 
 -(BOOL)isBusted {
-//    NSMutableString *rankOfAllCards = [[NSMutableString alloc]init];
-//    for (FISPlayingCard *card in self.hand) {
-//        [rankOfAllCards appendFormat:(@"%@, ", [card.rank stringValue])];
-//    }
     NSLog(@"RETURNING isBusted (for a handScore of %d) as = %@", [self.handScore intValue], ([self.handScore intValue] > 21)? @"YES" : @"NO");
     NSComparisonResult result = [self.handScore compare:@21];
     return (result == NSOrderedDescending);
