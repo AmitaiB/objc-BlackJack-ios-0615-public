@@ -20,6 +20,11 @@ DerivedData
 #CocoaPods
 #Pods
 
+<<<<<<< HEAD
 
 #PDFs
 *.pdf
+=======
+#PDFs
+*.pdf
+>>>>>>> refactor2

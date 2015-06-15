@@ -22,9 +22,15 @@
     return self;
 }
 
+-(void)setupNewRound {
+    self.playingCardDeck = [[FISPlayingCardDeck alloc] init];
+    [self.hand removeAllObjects];
+    [self checkHandScore];
+}
+
 //Make sure the hand is empty, then deal.
 -(void)deal {
-    [self.hand removeAllObjects];
+    [self setupNewRound];
     [self.hand addObject:[self.playingCardDeck drawRandomCard]]; //1
     [self.hand addObject:[self.playingCardDeck drawRandomCard]]; //2
     [self checkHandScore];
@@ -38,7 +44,13 @@
     [self.hand addObject:[self.playingCardDeck drawRandomCard]];
     [self checkHandScore];
         NSLog(@"JUST HIT. isBusted = %@, isBlackjack = %@", self.isBusted? @"YES":@"NO", self.isBlackjack? @"YES":@"NO");
-    // _hand++
+}
+
+-(void)setHand:(NSMutableArray*)newHand {
+    [self setupNewRound];
+    [self.hand addObjectsFromArray:newHand];
+    [self.playingCardDeck.cards removeObjectsInArray:newHand];
+    [self checkHandScore];
 }
 
 //Add score with AllAces1, if score < 12, add 10 (only want one ace + 10)
@@ -49,7 +61,7 @@
     for (FISPlayingCard *card in self.hand) {
         if ([card.rank isEqualToNumber:@1])
             handIncludesAnAce = YES;
-        if (card.rank > 10)
+        if ([card.rank integerValue] > 10)
             handScoreTemp += 10;
         else
             handScoreTemp += [card.rank integerValue];
@@ -62,30 +74,17 @@
 
     NSLog(@"FROM inside checkHandScore, AFTER accounting for Aces. handScoreTemp = %lu", (unsigned long)handScoreTemp);
 
-    
     self.handScore = [NSNumber numberWithUnsignedInteger:handScoreTemp];
-    [self isBusted];
-    [self isBlackjack];
+    [self checkIfBusted];
+    [self checkIfBlackjack];
     
 }
 
--(BOOL)isBusted {
-    NSLog(@"RETURNING isBusted (for a handScore of %d) as = %@", [self.handScore integerValue], ([self.handScore integerValue] > 21)? @"YES" : @"NO");
-    NSComparisonResult result = [self.handScore compare:@21];
-    return (result == NSOrderedDescending);
+-(void)checkIfBusted {
+    self.isBusted = [self.handScore integerValue] > 21;
 }
 
--(BOOL)isBlackjack {
-    return ([self.handScore isEqualToNumber:@21]);
-}
-
--(void)setHand:(NSMutableArray*)newHand {
-//    _playingCardDeck = [[FISPlayingCardDeck alloc] init];
-    [_hand removeAllObjects];
-    [_hand addObjectsFromArray:newHand];
-    [_playingCardDeck.cards removeObjectsInArray:newHand];
-//    NSLog(@"self.playingCardDeck.cards count READS AS = %lu", (unsigned long)[self.playingCardDeck.cards count]);
-    [self checkHandScore];
-}
+-(void)checkIfBlackjack {
+    self.isBlackjack = [self.handScore integerValue] == 21;}
 
 @end
