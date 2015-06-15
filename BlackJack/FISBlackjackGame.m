@@ -16,8 +16,8 @@
         _playingCardDeck = [[FISPlayingCardDeck alloc] init];
         _hand = [[NSMutableArray alloc] init];
         _handScore = @0;
-//        _isBusted = NO;
-//        _isBlackjack = NO;
+        _isBusted = NO;
+        _isBlackjack = NO;
     }
     return self;
 }
@@ -64,14 +64,13 @@
 
     
     self.handScore = [NSNumber numberWithUnsignedInteger:handScoreTemp];
-//  Don't need to call these here if there is no property to be changed.
-//    [self isBusted];
-//    [self isBlackjack];
+    [self isBusted];
+    [self isBlackjack];
     
 }
 
 -(BOOL)isBusted {
-    NSLog(@"RETURNING isBusted (for a handScore of %d) as = %@", [self.handScore intValue], ([self.handScore intValue] > 21)? @"YES" : @"NO");
+    NSLog(@"RETURNING isBusted (for a handScore of %d) as = %@", [self.handScore integerValue], ([self.handScore integerValue] > 21)? @"YES" : @"NO");
     NSComparisonResult result = [self.handScore compare:@21];
     return (result == NSOrderedDescending);
 }
@@ -81,7 +80,7 @@
 }
 
 -(void)setHand:(NSMutableArray*)newHand {
-    _playingCardDeck = [[FISPlayingCardDeck alloc] init];
+//    _playingCardDeck = [[FISPlayingCardDeck alloc] init];
     [_hand removeAllObjects];
     [_hand addObjectsFromArray:newHand];
     [_playingCardDeck.cards removeObjectsInArray:newHand];
