@@ -16,15 +16,21 @@
         _playingCardDeck = [[FISPlayingCardDeck alloc] init];
         _hand = [[NSMutableArray alloc] init];
         _handScore = @0;
-//        _isBusted = NO;
-//        _isBlackjack = NO;
+        _isBusted = NO;
+        _isBlackjack = NO;
     }
     return self;
 }
 
+-(void)setupNewRound {
+    self.playingCardDeck = [[FISPlayingCardDeck alloc] init];
+    [self.hand removeAllObjects];
+    [self checkHandScore];
+}
+
 //Make sure the hand is empty, then deal.
 -(void)deal {
-    [self.hand removeAllObjects];
+    [self setupNewRound];
     [self.hand addObject:[self.playingCardDeck drawRandomCard]]; //1
     [self.hand addObject:[self.playingCardDeck drawRandomCard]]; //2
     [self checkHandScore];
@@ -64,23 +70,23 @@
 
     
     self.handScore = [NSNumber numberWithUnsignedInteger:handScoreTemp];
-    [self isBusted];
-    [self isBlackjack];
+    [self checkIfBusted];
+    [self checkIfBlackjack];
     
 }
 
--(BOOL)isBusted {
-    NSMutableString *rankOfAllCards = [[NSMutableString alloc]init];
-    for (FISPlayingCard *card in self.hand) {
-        [rankOfAllCards appendFormat:(@"%@, ", card.rank)];
-    }
-    NSLog(@"I'M ABOUT TO RETURN isBusted (for a hand of %@) as = %@", rankOfAllCards, ([self.handScore intValue] > 21)? @"YES" : @"NO");
-    
-    return ([self.handScore intValue] > 21);
+-(void)checkIfBusted {
+//    NSMutableString *rankOfAllCards = [[NSMutableString alloc]init];
+//    for (FISPlayingCard *card in self.hand) {
+//        [rankOfAllCards appendFormat:(@"%@, ", card.rank)];
+//    }
+//    NSLog(@"I'M ABOUT TO RETURN isBusted (for a hand of %@) as = %@", rankOfAllCards, ([self.handScore intValue] > 21)? @"YES" : @"NO");
+//    
+    self.isBusted = [self.handScore integerValue] > 21;
 }
 
--(BOOL)isBlackjack {
-    return ([self.handScore intValue] == 21);
+-(void)isBlackjack {
+    self.isBlackjack = [self.handScore integerValue] == 21;
 }
 
 -(void)setHand:(NSMutableArray*)newHand {
